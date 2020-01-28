@@ -160,5 +160,5 @@ int main() {
 	cout << "\n\n\nExecution time: " <<
 		(clock() - stTime) * 1e3 / CLOCKS_PER_SEC << " ms" << endl;
 	#endif
-    return 0;
+	return 0;
 }

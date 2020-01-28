@@ -1,3 +1,3 @@
 # CompetitiveProgramming
 
-A repositories for the solutions of the problems I solve.
+A repository for the solutions of the problems I solve.

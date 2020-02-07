@@ -138,16 +138,9 @@ int main() {
 		double dx = p2.x - p1.x, dy = p2.y - p1.y;
 
 		// if p1 = p2
-		{
-
-			if (fabs(dx) < EPS && fabs(dy) < EPS) {
-				cout << "0.000\n";
-				continue;
-			}
-		}
-
-		{
-
+		if (fabs(dx) < EPS && fabs(dy) < EPS) {
+			cout << "0.000\n";
+			continue;
 		}
 
 		// check if p2 is one different side then origin w.r.t. L

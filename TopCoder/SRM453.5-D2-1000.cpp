@@ -9,7 +9,7 @@
  * and similarly for dpmin.
  * There is one more thing to note, is that the next state we move to might be an invalid state,
  * for example a state that needs to take j values from a part of the array that has less than
- * j values. So we only modify states in the next states are valid.
+ * j values. So we only modify states if the next states are valid.
  */
 #include <bits/stdc++.h>
 

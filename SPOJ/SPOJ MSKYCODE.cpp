@@ -1,10 +1,3 @@
-/*
- * Let dp[i] be the number of 4-subsets with gcd = i
- * The answer is dp[1], since numbers that have only divisor = 1
- * also have gcd = 1.
- * And we note that:
- * dp[i] = number of 4-subsets divisible by i - dp[j * i] for j >= 2
- */
 #include <bits/stdc++.h>
 
 using namespace std;
@@ -71,33 +64,19 @@ using umii = unordered_map<int, int>;
 using si = set<int>;
 using usi = unordered_set<int>;
 
-const int MX = 1e4 + 5;
-int divCnt[MX];
-ll dp[MX];
+V<ll> x, y, z;
 
-void getDivs(int x) {
-	++divCnt[1];
-	if (x > 1)
-		++divCnt[x];
-	int i;
-	for (i = 2; i * i < x; i++)
-		if (x % i == 0)
-			++divCnt[i], ++divCnt[x / i];
-	if (i * i == x)
-		++divCnt[i];
+ll sum(ll mid) {
+	ll tot = 0;
+	for (int k = 0; k < sz(x); ++k) {
+		ll xx = x[k], yy = y[k], zz = z[k];
+		if (mid < xx)
+			continue;
+		tot += 1 + min((mid - xx) / zz, (yy - xx) / zz);
+	}
+	return tot;
 }
 
-void rmvDivs(int x) {
-	--divCnt[1];
-	if (x > 1)
-		--divCnt[x];
-	int i;
-	for (i = 2; i * i < x; i++)
-		if (x % i == 0)
-			--divCnt[i], --divCnt[x / i];
-	if (i * i == x)
-		--divCnt[i];
-}
 
 int main() {
 	#ifdef LOCAL
@@ -109,33 +88,51 @@ int main() {
 	cout.precision(10);
 	cin.tie(0);
 
-	int N;
+	V<string> in;
 
-	while (cin >> N) {
+	string s;
+
+	while (getline(cin, s))
+		in.pb(s);
 
 
-		vi a(N);
+	for (int i = 0; i < sz(in); ++i) {
+		if (in[i].empty() || !isdigit(in[i][0]))
+			continue;
+		x.clear();
+		y.clear();
+		z.clear();
+		for (int j = i; j <= sz(in); ++j) {
+			if (j == sz(in) || (in[j].empty() || !isdigit(in[j][0]))) {
+				ll lo = 0, hi = 1e11;
+				while (lo < hi) {
+					ll mid = (lo + hi) >> 1;
 
-		for (int i = 0; i < N; ++i) {
-			cin >> a[i];
-			getDivs(a[i]);
+					ll tot = sum(mid);
+
+					if (tot & 1)
+						hi = mid;
+					else
+						lo = mid + 1;
+				}
+
+				if (lo > 1e10)
+					cout << "no corruption\n";
+				else {
+					cout << lo << ' ' << sum(lo) - sum(lo - 1) << '\n';
+				}
+				i = j;
+				break;
+			} else {
+				stringstream ss(in[j]);
+				ll xx, yy, zz;
+				ss >> xx >> yy >> zz;
+				if (yy >= xx)
+					x.pb(xx), y.pb(yy), z.pb(zz);
+			}
 		}
-
-		for (int i = MX - 1; i >= 1; --i) {
-			ll x = divCnt[i];
-			x = x * (x - 1) * (x - 2) * (x - 3);
-			assert(x % 24 == 0);
-			dp[i] = x / 24;
-			for (int j = 2 * i; j < MX; j += i)
-				dp[i] -= dp[j];
-		}
-
-		cout << dp[1] << '\n';
-
-		for (int i = 0; i < N; ++i)
-			rmvDivs(a[i]);
-
 	}
+
 
 	#ifdef LOCAL
 	cout << "\n\n\nExecution time: " <<

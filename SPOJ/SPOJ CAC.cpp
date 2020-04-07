@@ -11,6 +11,11 @@
  * then there'd more than 1 connected components in the resulting graph
  * Hence we can chose which edges to remove from C in |C| ways, then we
  * remove the edges of C to find the next cycle and repeat the process.
+ * To try to set an upper bound to answer, if the graph had cycles
+ * of lengths c1, c2, .., cx then our ans would be the product of all those ci
+ * this product gets its max value when every edge is in a cycle, and all cycles
+ * are of length 3, so ans <= 3^(E/3) = 3^(120/3) = 1.215e19 - which means that
+ * the answer might not fit in long long and need unsigned long long
  */
 
 #include <bits/stdc++.h>

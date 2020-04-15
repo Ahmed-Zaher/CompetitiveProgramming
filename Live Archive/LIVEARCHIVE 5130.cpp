@@ -1,3 +1,14 @@
+/*
+ * Note that each of the character has different number
+ * of white connected components in it
+ * So we can do the following:
+ * -Find all connected components (white or black) and label them
+ * -For every black connected components, find the set of white components
+ * that it shares boundaries with
+ * -From the size of that set, we can determine which character that
+ * black connected components represents
+ */
+
 #include <bits/stdc++.h>
 
 using namespace std;

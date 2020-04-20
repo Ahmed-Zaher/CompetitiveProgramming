@@ -16,7 +16,7 @@
  * The number of pairs s.t. x lies between x_A, x_B is 2 * (x - 1) * (N - x) + 2 * N - 1 (1-based coordinates)
  * Now that we have f_c, to get the probability that we toggle an odd number of times we computer
  * sum of (K)C(i) * f_c^i * (1-f_c)^(K- i) for all odd valid i
- * To computer that expression efficiently we can use the trick described here:
+ * To compute that expression efficiently we can use the trick described here:
  * 		https://math.stackexchange.com/a/2528981
  */
 

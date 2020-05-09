@@ -1,5 +1,5 @@
 /*
- * We can solve the problem if we can answer efficiently a sum(x, y)
+ * We can solve the problem if we can answer efficiently sum(x, y)
  * which returns the sum of the grid bound by (1, 1) and (x, y)
  * Let's first precompute sum(x, y) for all x <= 2n, y <= 2m.
  * Note that after i'th step of building the grid we get a new grid of

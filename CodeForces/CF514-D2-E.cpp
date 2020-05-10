@@ -5,11 +5,11 @@
  * and we also note that sumAns[x] = sum of ans[i] for i in [0, x]
  * 								   = sumAns[x - 1] + ans[x]
  * We can model these recurrences as a matrix M where:
- * |ansSum[x]|        |ansSum[x-1]|
- * |ans[x]	 |		  |ans[x-1]   |
- * |    .	 |	= M * |    .	  |
- * |    .	 |		  |    .	  |
- * |ans[x-99]| 		  ||ans[x-100]|
+ * |ansSum[x]	 |        	  |ansSum[x-1]  |
+ * |ans[x]	 |		  |ans[x-1]  	|
+ * |    .	 |	= M * 	  |    .	|
+ * |    .	 |		  |    .	|
+ * |ans[x-99]	 | 		  ||ans[x-100]	|
  *
  * Then we can use matrix exponentiation to obtain the answer
  */

@@ -3,7 +3,7 @@
  * we note that ans[x] = sum of ans[x-i]*freq[i] for i in [1, 100]
  * where freq[i] = number of times the element i occurred in d
  * and we also note that sumAns[x] = sum of ans[i] for i in [0, x]
- * 								   = sumAns[x - 1] + ans[x]
+ * 				 = sumAns[x - 1] + ans[x]
  * We can model these recurrences as a matrix M where:
  * |ansSum[x]	 |        	  |ansSum[x-1]  |
  * |ans[x]	 |		  |ans[x-1]  	|

@@ -1,7 +1,7 @@
 /*
- * This is classical minimum vertex cover problem, which has the same
+ * This is a classical minimum vertex cover problem, which has the same
  * size as maximum matching for which we can using flows or Hopcroft Karp
- * The new thing here is that we need to build the vertex cover, which
+ * The new thing here is that we need to build actual the vertex cover, which
  * can be done using the maximum matching
  * This tutorial explains all of that:
  * https://tryalgo.org/en/matching/2016/08/05/konig/

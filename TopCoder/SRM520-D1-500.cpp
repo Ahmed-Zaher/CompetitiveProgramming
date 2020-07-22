@@ -13,8 +13,8 @@
  * using tabulation with partial sums.
  * Now as for the recurrence for dp, we compute for every (i, mask, k) the following:
  * sum of dp[i][0]*f[mask][0] + dp[i][1]*f[mask][1] ... + dp[i][k]*f[mask][k]
- * can be computed in O(1) if we again use tabulation with partial sums
- * Because we only have 3 problems and 3 different values of mask, this computation
+ * this can be computed in O(1) if we again use tabulation with partial sums
+ * Because we only have 3 problems and 8 different values of mask, this computation
  * is feasible. Then we also use the memory reduction trick to satisfy the memory limit
  */
 
